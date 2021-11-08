@@ -12,16 +12,11 @@ cities = {
 }
 
 def get_city_names(cities)
-    cities.each do |key, value|
-        puts key
-    end 
+    cities.keys
 end
 
 def get_area_code(cities, selected_city)
-    cities.each do |key, value|
-        return value if key == selected_city
-    end 
-    return 
+    cities[selected_city]
 end 
 
 loop do
@@ -31,16 +26,14 @@ loop do
     break if input != "y" 
 
     puts "which city do you want an area code for?"
-    get_city_names(cities)
+    puts get_city_names(cities)
 
     puts "enter your selection"
     city = gets.chomp.downcase
 
-    area_code = get_area_code(cities, city);
-
-    if(!area_code) 
-        puts "Unable to find an area code for #{city}. Please enter a valid city to look up."
+    if(cities.include?(city)) 
+        puts "The area code of #{city} is #{get_area_code(cities, city)}"
     else
-        puts "The area code of #{city} is #{area_code}"
+        puts "Unable to find an area code for #{city}. Please enter a valid city to look up."
     end
 end
