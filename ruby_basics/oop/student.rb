@@ -1,4 +1,6 @@
 class Student 
+    attr_accessor :first_name, :last_name, :email, :username
+
     @first_name
     @last_name
     @email
@@ -11,5 +13,12 @@ class Student
 end
 
 kevin = Student.new
-puts kevin
+kevin.first_name = 'Kevin'
+puts kevin.first_name
+kevin.last_name = 'Guertin'
+puts kevin.last_name
+kevin.email = "kevin.m.guertin@gmail.com"
+kevin.username = 'kguertin'
+puts kevin.email
+puts kevin.username
 
